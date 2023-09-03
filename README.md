@@ -8,6 +8,20 @@ After [installing Go](https://go.dev/dl/), you can easily compile the Go source 
 go build GoSFV.go
 ```
 
+If you want to cross-compile from Windows for Linux architecture, run this before using the ```go build``` command:
+
+### 32-bit Linux
+```bash
+set GOOS=linux
+set GOARCH=386
+```
+
+### 64-bit Linux
+```bash
+set GOOS=linux
+set GOARCH=amd64
+```
+
 After compiling the file, you can use the resulting executable as follows:
 ```bash
 GoSFV.exe PATH
