@@ -10,9 +10,9 @@ go build GoSFV.go
 
 After compiling the file, you can use the resulting executable as follows:
 ```bash
-GoSFV <path>
+GoSFV PATH
 ```
-Make sure to replace <path> with the actual path that contains a .sfv file and the files that need to be verified. GoSFV will report any verification failures and save the results in a text file named 'failedSFVs.txt,' located in the same directory as the .sfv file.
+Make sure to replace PATH with the actual path that contains a .sfv file and the files that need to be verified. GoSFV will report any verification failures and save the results in a text file named 'failedSFVs.txt,' located in the same directory as the .sfv file.
 
 ## Dependencies
 GoSFV relies on the following Go packages, which are all part of the [standard library](https://pkg.go.dev/std):
