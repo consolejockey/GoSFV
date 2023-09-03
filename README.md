@@ -1,6 +1,6 @@
 # GoSFV
 
-GoSFV is a fast, simple, and OS-independent command-line tool designed for the swift verification of .SFV and their respective verification files. Written entirely in Go, it offers reliability and speed in one package.
+GoSFV is a fast, simple, and OS-independent command-line tool designed for the swift verification of file integrity through *SimpleFileVerification*. Written entirely in Go, it offers reliability and speed in one package.
 
 ## Usage
 After [installing Go](https://go.dev/dl/), you can easily compile the Go source code using the following command:
@@ -10,7 +10,7 @@ go build GoSFV.go
 
 After compiling the file, you can use the resulting executable as follows:
 ```bash
-GoSFV PATH
+GoSFV.exe PATH
 ```
 Make sure to replace PATH with the actual path that contains a .sfv file and the files that need to be verified. GoSFV will report any verification failures and save the results in a text file named 'failedSFVs.txt,' located in the same directory as the .sfv file.
 
