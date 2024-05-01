@@ -8,9 +8,7 @@ You can use GoSFV in two ways:
 
 1. **Drag and Drop**: Simply drag and drop the `.sfv` file or the folder containing the `.sfv` file onto the executable file (`gosfv.exe` on Windows, `gosfv` on Unix-like systems).
 
-2. **Command Line**: You can start GoSFV from the command line by providing the path to the `.sfv` file as an argument:
-
-`gosfv <path to sfv file or folder>`
+2. **Command Line**: You can start GoSFV from the command line by providing the path to the `.sfv` file as an argument: `gosfv <path to sfv file or folder>`
 
 ## Features
 
