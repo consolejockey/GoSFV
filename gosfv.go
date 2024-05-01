@@ -9,9 +9,7 @@ import (
 	"strings"
 )
 
-const (
-    outputFileName  = "failedSFVs.txt"
-)
+const outputFileName  = "failedSFVs.txt"
 
 func decimalToHex(decimalChecksum uint32) string {
 	hexChecksum := fmt.Sprintf("%08x", decimalChecksum)
