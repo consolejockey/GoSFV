@@ -90,7 +90,7 @@ func verifySFV(dirPath string) ([]string, error) {
 	}
 
 	if len(failedSFVs) == 0 {
-		fmt.Print("All files successfully verified.")
+		fmt.Println("All files successfully verified.")
 		return failedSFVs, nil
 	}
 
@@ -121,4 +121,6 @@ func main() {
 	}
 	filePath := os.Args[1]
 	verifySFV(filePath)
+	fmt.Println("Press Enter to exit...")
+	fmt.Scanln()
 }
