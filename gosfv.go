@@ -24,7 +24,7 @@ func calculateCRC32Checksum(filePath string) (string, error) {
 	}
 	crcHash := crc32.ChecksumIEEE(data)
 	hexCrcHash := decimalToHex(crcHash)
-	return hexCrcHash, err
+	return hexCrcHash, nil
 }
 
 func findSFVFileInDirectory(dirPath string) (string, error) {
@@ -73,10 +73,8 @@ func verifySFV(dirPath string) ([]string, error) {
 		if err != nil {
 			failedSFV := fileName + " " + calculatedChecksum
 			failedSFVs = append(failedSFVs, failedSFV)
-			continue
-		}
 
-		if strings.ToLower(expectedChecksum) == calculatedChecksum {
+		} else if strings.ToLower(expectedChecksum) == calculatedChecksum {
 			continue
 
 		} else {
