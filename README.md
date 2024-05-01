@@ -12,7 +12,7 @@ You can use GoSFV in two ways:
 
 ## Features
 
-- Automatically detects `.sfv` files in the provided directory.
+- Automatically detects the `.sfv` file in the provided directory.
 - Verifies the checksums of files listed in the SFV file.
 - Logs any files with incorrect checksums.
 - Saves a list of files with failed verification to a separate text file (`failedSFVs.txt`).
