@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const outputFileName  = "failedSFVs.txt"
+const outputFileName = "failedSFVs.txt"
 
 func decimalToHex(decimalChecksum uint32) string {
 	hexChecksum := fmt.Sprintf("%08x", decimalChecksum)
@@ -19,7 +19,7 @@ func decimalToHex(decimalChecksum uint32) string {
 func calculateCRC32Checksum(filePath string) (string, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		fmt.Printf("Could not open file at %s. Error: %v\n", filePath, err)
+		fmt.Printf("Failed to calculate checksum. Error: %v\n", err)
 		return "", err
 	}
 	crcHash := crc32.ChecksumIEEE(data)
@@ -71,7 +71,8 @@ func verifySFV(dirPath string) ([]string, error) {
 
 		calculatedChecksum, err := calculateCRC32Checksum(fullFilePath)
 		if err != nil {
-			fmt.Printf("Failed calculating checksum for %s. Error: %v", fileName, err)
+			failedSFV := fileName + " " + calculatedChecksum
+			failedSFVs = append(failedSFVs, failedSFV)
 			continue
 		}
 
@@ -86,7 +87,7 @@ func verifySFV(dirPath string) ([]string, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		fmt.Printf("Error reading SFV file: %v\n", err)
+		fmt.Printf("Failed calculating checksum. %v\n", err)
 		return failedSFVs, err
 	}
 
