@@ -10,7 +10,6 @@ import (
 )
 
 const (
-    delimiter       = " "
     outputFileName  = "failedSFVs.txt"
 )
 
@@ -66,7 +65,7 @@ func verifySFV(dirPath string) ([]string, error) {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		parts := strings.Split(line, delimiter)
+		parts := strings.Fields(line)
 
 		fileName := parts[0]
 		expectedChecksum := strings.TrimSpace(parts[1])
@@ -83,7 +82,7 @@ func verifySFV(dirPath string) ([]string, error) {
 
 		} else {
 			fmt.Printf("Failed SFV: %v\n", fileName)
-			failedSFV := fileName + delimiter + calculatedChecksum
+			failedSFV := fileName + " " + calculatedChecksum
 			failedSFVs = append(failedSFVs, failedSFV)
 		}
 	}
