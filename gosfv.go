@@ -72,13 +72,13 @@ func verifySFV(dirPath string) ([]string, error) {
 		if strings.ToLower(expectedChecksum) == calculatedChecksum {
 			continue
 		} else if err != nil {
-			fmt.Println(err)
 			failedSFV := fileName + " " + calculatedChecksum
 			failedSFVs = append(failedSFVs, failedSFV)
+			fmt.Println(err)
 		} else {
 			failedSFV := fileName + " " + calculatedChecksum
 			failedSFVs = append(failedSFVs, failedSFV)
-			fmt.Printf("Failed SFV: %v\n", failedSFV)
+			fmt.Printf("Checksum mismatch: %v\n", failedSFV)
 		}
 	}
 
