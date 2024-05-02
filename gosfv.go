@@ -19,8 +19,7 @@ func decimalToHex(decimalChecksum uint32) string {
 func calculateCRC32Checksum(filePath string) (string, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		fmt.Printf("Failed to calculate checksum. Error: %v\n", err)
-		return "", err
+		return "", fmt.Errorf("failed to calculate checksum. %v", err)
 	}
 	crcHash := crc32.ChecksumIEEE(data)
 	hexCrcHash := decimalToHex(crcHash)
@@ -70,17 +69,16 @@ func verifySFV(dirPath string) ([]string, error) {
 		fullFilePath := filepath.Join(sfvFolder, fileName)
 
 		calculatedChecksum, err := calculateCRC32Checksum(fullFilePath)
-		if err != nil {
-			failedSFV := fileName + " " + calculatedChecksum
-			failedSFVs = append(failedSFVs, failedSFV)
-
-		} else if strings.ToLower(expectedChecksum) == calculatedChecksum {
+		if strings.ToLower(expectedChecksum) == calculatedChecksum {
 			continue
-
-		} else {
-			fmt.Printf("Failed SFV: %v\n", fileName)
+		} else if err != nil {
+			fmt.Println(err)
 			failedSFV := fileName + " " + calculatedChecksum
 			failedSFVs = append(failedSFVs, failedSFV)
+		} else {
+			failedSFV := fileName + " " + calculatedChecksum
+			failedSFVs = append(failedSFVs, failedSFV)
+			fmt.Printf("Failed SFV: %v\n", failedSFV)
 		}
 	}
 
