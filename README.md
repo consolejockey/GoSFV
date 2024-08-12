@@ -1,6 +1,6 @@
 # GoSFV
 
-GoSFV is a fast and simple command-line tool designed for the swift verification of file integrity through Simple file verification (*SFV*). Written entirely in Go, it offers reliability and speed in one package.
+GoSFV is a fast and simple command-line tool designed for the swift verification of file integrity through Simple File Verification (*SFV*). Written entirely in Go, it offers reliability and speed in one package.
 
 ## Usage
 
