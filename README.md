@@ -1,6 +1,6 @@
 # GoSFV
 
-GoSFV is a fast, simple, and OS-independent command-line tool designed for the swift verification of file integrity through Simple file verification (*SFV*). Written entirely in Go, it offers reliability and speed in one package.
+GoSFV is a fast and simple command-line tool designed for the swift verification of file integrity through Simple file verification (*SFV*). Written entirely in Go, it offers reliability and speed in one package.
 
 ## Usage
 
@@ -13,10 +13,8 @@ You can use GoSFV in two ways:
 ## Features
 
 - Automatically detects the `.sfv` file in the provided directory.
-- Verifies the checksums of files listed in the SFV file.
-- Logs any files with incorrect checksums.
-- Saves a list of files with failed verification to a separate text file (`failedSFVs.txt`).
-
+- Verifies the checksums of files listed in the .sfv file.
+- Saves a list of files with incorrect checksums to a separate text file (`failedSFVs.txt`) in the same directory as the .sfv file.
 
 ## Dependencies
 GoSFV relies on the following Go packages, which are all part of the [standard library](https://pkg.go.dev/std):
